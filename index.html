@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>生日惊喜 🎉</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #FFFAE5;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+            color: #FF6347;
+        }
+        #countdown, #loadingMessage {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎂 生日快乐！ 🎂</h1>
+    <p>点击下方按钮获取你的超级生日惊喜！</p>
+    <button onclick="startSurprise()">点我！</button>
+    <p id="countdown" style="display: none;">倒计时：<span id="timer">5</span>秒</p>
+    <p id="loadingMessage" style="display: none;">加载生日惊喜中，请耐心等待...</p>
+
+    <script>
+        function startSurprise() {
+            document.querySelector("button").style.display = "none";
+            document.getElementById("countdown").style.display = "block";
+
+            let count = 5;
+            const countdownTimer = setInterval(() => {
+                count -= 1;
+                document.getElementById("timer").innerText = count;
+                if (count === 0) {
+                    clearInterval(countdownTimer);
+                    document.getElementById("countdown").style.display = "none";
+                    document.getElementById("loadingMessage").style.display = "block";
+                    infiniteLoading();
+                }
+            }, 1000);
+        }
+
+        function infiniteLoading() {
+            setInterval(() => {
+                alert("礼物正在下载中... 请稍候！😂");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
