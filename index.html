@@ -1,61 +1,112 @@
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>生日惊喜 🎉</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #FFFAE5;
-            text-align: center;
-        }
-        h1 {
-            font-size: 2em;
-            color: #FF6347;
-        }
-        #countdown, #loadingMessage {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #333;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My University Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    img {
+      width: 150px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .map {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+  </style>
 </head>
 <body>
-    <h1>🎂 生日快乐！ 🎂</h1>
-    <p>点击下方按钮获取你的超级生日惊喜！</p>
-    <button onclick="startSurprise()">点我！</button>
-    <p id="countdown" style="display: none;">倒计时：<span id="timer">5</span>秒</p>
-    <p id="loadingMessage" style="display: none;">加载生日惊喜中，请耐心等待...</p>
+  <div class="container">
+    <h1>My University Tracker</h1>
 
-    <script>
-        function startSurprise() {
-            document.querySelector("button").style.display = "none";
-            document.getElementById("countdown").style.display = "block";
+    <h2>Universities I've Applied To</h2>
+    <ul>
+      <li><a href="https://www.ucsd.edu" target="_blank">UC San Diego</a> – Major: Computer Science</li>
+      <li><a href="https://uci.edu" target="_blank">UC Irvine</a> – Major: Engineering</li>
+    </ul>
 
-            let count = 5;
-            const countdownTimer = setInterval(() => {
-                count -= 1;
-                document.getElementById("timer").innerText = count;
-                if (count === 0) {
-                    clearInterval(countdownTimer);
-                    document.getElementById("countdown").style.display = "none";
-                    document.getElementById("loadingMessage").style.display = "block";
-                    infiniteLoading();
-                }
-            }, 1000);
-        }
+    <div class="map">
+      <h2>University Locations</h2>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1T1Dq-PREPLACE_ME" width="100%" height="300"></iframe>
+    </div>
 
-        function infiniteLoading() {
-            setInterval(() => {
-                alert("礼物正在下载中... 请稍候！😂");
-            }, 3000);
-        }
-    </script>
+    <h2>Comparison Table</h2>
+    <table>
+      <tr>
+        <th>University</th>
+        <th>Pros</th>
+        <th>Cons</th>
+      </tr>
+      <tr>
+        <td>UCSD</td>
+        <td>Strong CS program, beautiful campus</td>
+        <td>Large class sizes</td>
+      </tr>
+      <tr>
+        <td>UCI</td>
+        <td>Modern facilities, good for engineering</td>
+        <td>Suburban location</td>
+      </tr>
+    </table>
+
+    <h2>Campus Photos</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/UCSanDiegoGeiselLibrary.jpg/800px-UCSanDiegoGeiselLibrary.jpg" alt="UCSD">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/UC_Irvine_Aldrich_Park.jpg/800px-UC_Irvine_Aldrich_Park.jpg" alt="UCI">
+  </div>
 </body>
 </html>
